@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/disney_plus_backEnd/uploads/
+/disney_plus_backEnd/node_modules/
 
 # testing
 /coverage

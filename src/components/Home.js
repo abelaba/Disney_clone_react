@@ -1,15 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useState } from 'react';
 import styled from 'styled-components';
 import ImgSlider from './ImgSlider';
 import Viewers from './Viewers';
 import Movies from './Movies';
 import {useDispatch} from 'react-redux';
 import { setMovies } from "../features/movie/movieSlice";
+import { AnimateSharedLayout, AnimatePresence,motion } from "framer-motion"
+
 
 
 function Home(){
 
     const dispatch = useDispatch();
+    const [selectedId, setSelectedId] = useState(null)
+    
+    const item = {
+        "id":1,
+        "title": "fsjdfjksdf",
+        "subtitle":"slkdfjklsdfjklj",
+    }
 
     useEffect(()=>{
         fetch("http://localhost:5000/api/movies")
@@ -18,13 +27,32 @@ function Home(){
                 console.log(data);
                 dispatch(setMovies(data));
         });
+        console.log(selectedId)
     },[dispatch])
+
+    const items = [
+    {   "id":1,
+        "title": "title",
+        "subtitle":"subtitle",
+    },
+    {   "id":2,
+        "title": "title2",
+        "subtitle":"subtitle2",
+    }
+    ]
 
     return <div>
                 <Container>
                     <ImgSlider/>
                     <Viewers/>
                     <Movies/>
+                
+ 
+                    
+                
+                    
+ 
+           
                 </Container>
            </div>
 }

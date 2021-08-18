@@ -1,26 +1,54 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import { selectMovies } from "../features/movie/movieSlice";
 import { useSelector } from "react-redux";
+import { AnimateSharedLayout, AnimatePresence,motion } from "framer-motion"
+
 
 
 function Movies() {
 
     const movies = useSelector(selectMovies);
+    const [selectedId, setSelectedId] = useState(null)
+    const [item,setItem] = useState()
+
+    const wrapVariants = {
+        hidden:{
+            opacity:0
+        },
+        visible:{
+            opacity:1,
+            transition:{
+                delay:1,
+                duration:1
+            }
+        },
+        hover:{
+            scale:1.1,
+            type:"spring",
+            transition:{
+                duration:1,
+            }
+        }
+       
+    }
+
     return (
         <Container>
             <h4>Recommended for you</h4>
             <Content>
                 {movies && 
                     movies.map((movie)=>{
-                        return <Wrap key={movie._id}>
+                        return <Wrap variants={wrapVariants} initial="hidden" animate="visible" whileHover="hover" key={movie._id}>
                         <Link to={`/detail/${movie._id}`}>
                             <img alt=""  src={movie.cardImg} />
                         </Link>
                         </Wrap>
                     })
                 }
+
+
 
             </Content>
         </Container>
@@ -40,7 +68,7 @@ const Content = styled.div`
     grid-template-columns: repeat(4,minmax(0,1fr));
 `
 
-const Wrap = styled.div`
+const Wrap = styled(motion.div)`
     border: 3px solid rgba(249,249,249,0.10);
     border-radius: 10px;
     box-shadow: rgb(0 0 0/ 69%) 0px 26px 30px -10px,

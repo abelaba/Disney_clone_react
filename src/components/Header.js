@@ -38,27 +38,27 @@ function Header() {
             <Logo src="/images/logo.svg"/>
             {userName?
                 <><NavMenu>
-                    <a href>
+                    <a href=" ">
                         <img src="/images/home-icon.svg" alt=""></img>
                         <span>HOME</span>
                     </a>
-                    <a href>
+                    <a href=" ">
                         <img src="/images/search-icon.svg" alt=""></img>
                         <span>SEARCH</span>
                     </a>
-                    <a href>
+                    <a href=" ">
                         <img src="/images/watchlist-icon.svg" alt=""></img>
                         <span>WATCHLIST</span>
                     </a>
-                    <a href>
+                    <a href=" ">
                         <img src="/images/original-icon.svg" alt=""></img>
                         <span>ORIGINALS</span>
                     </a>
-                    <a href>
+                    <a href=" ">
                         <img src="/images/movie-icon.svg" alt=""></img>
                         <span>MOVIES</span>
                     </a>
-                    <a href>
+                    <a href=" ">
                         <img src="/images/series-icon.svg" alt=""></img>
                         <span>SERIES</span>
                     </a>
@@ -106,6 +106,8 @@ const NavMenu = styled.div`
         align-items: center;
         padding: 0 12px;
         cursor: pointer;
+        text-decoration: none;
+        color: white;
 
         img{
             height: 20px;

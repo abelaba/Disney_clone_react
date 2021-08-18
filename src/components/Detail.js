@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // import db from '../firebase'
 
@@ -33,7 +34,7 @@ function Detail() {
 
                 <><Background>
                     <img alt=""  src={movie.backgroundImg}/>
-                </Background><ImageTitle>
+                </Background><ImageTitle initial={{x:-200}} animate={{x:0}} transition={{duration:2}} >
                         <img alt=""  src={movie.titleImg}/>
                     </ImageTitle><Controls>
                         <PlayButton>
@@ -96,7 +97,7 @@ const Background = styled.div`
 
 `
 
-const ImageTitle = styled.div`
+const ImageTitle = styled(motion.div)`
     height: 30vh;
     width: 35vw;
     min-height: 170px;
