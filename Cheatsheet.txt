@@ -2,3 +2,6 @@
 npm install 
     styled-components
     react-slick  // For using carousel
+    react-router-dom // for routing
+    firebase
+    firebase-tools
