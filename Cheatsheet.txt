@@ -1,4 +1,4 @@
 
 npm install 
     styled-components
-    
+    react-slick  // For using carousel
